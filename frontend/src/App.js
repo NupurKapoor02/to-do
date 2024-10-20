@@ -7,13 +7,13 @@ const App = () => {
   const [todos, setTodos] = useState([]);
 
   const fetchTodos = async () => {
-    const response = await fetch('http://localhost:5000/todos');
+    const response = await fetch('https://to-do-ml81.onrender.com/todos');
     const data = await response.json();
     setTodos(data);
   };
 
   const addTodo = async (newTodo) => {
-    await fetch('http://localhost:5000/todos', {
+    await fetch('https://to-do-ml81.onrender.com/todos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newTodo),
@@ -22,21 +22,21 @@ const App = () => {
   };
 
   const toggleTodo = async (id) => {
-    await fetch(`http://localhost:5000/todos/${id}/toggle`, {
+    await fetch(`https://to-do-ml81.onrender.com/todos/${id}/toggle`, {
       method: 'PATCH',
     });
     fetchTodos();
   };
 
   const deleteTodo = async (id) => {
-    await fetch(`http://localhost:5000/todos/${id}`, {
+    await fetch(`https://to-do-ml81.onrender.com/todos/${id}`, {
       method: 'DELETE',
     });
     fetchTodos(); 
   };
 
   const editTodo = async (id, updatedTodo) => {
-    await fetch(`http://localhost:5000/todos/${id}`, {
+    await fetch(`https://to-do-ml81.onrender.com/todos/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedTodo),
